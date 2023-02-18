@@ -1,1 +1,1 @@
-# Venue-Booking-Management-System-Odoo
+# Venue-Booking-Management-System-Odoo-Custom-Addons
