@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--    Change Menu Name-->
+    <record id="venue_booking.venue_booking" model="ir.ui.menu">
+        <field name="name">New Venue Booking</field>
+    </record>
+    <!--Add State And Button-->
+    <record id="venue_booking_form_view" model="ir.ui.view">
+        <field name="name">venue.booking.form.view</field>
+        <field name="model">venue.booking</field>
+        <field name="inherit_id" ref="venue_booking.venue_booking_form_view"/>
+        <field name="arch" type="xml">
+            <field name="slot_id" position="after">
+                <field name="specity"/>
+                <field name="organization"/>
+            </field>
+            <!--            <xpath expr="//field[@name='slot_id']" position="after">-->
+            <!--                <field name="a"/>-->
+            <!--            </xpath>-->
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <!--                    <field name="confirm"  invisible="1"/>-->
+
+                    <button class="btn-primary" name="action_draft" string="Draft" type="object" attrs="{'invisible': ['|','|', ('state','=','confirm'), ('state','=','approve'), ('state','=','draft')]}"/>
+
+                    <button class="btn-primary" name="action_confirm" string="Confirm" type="object" attrs="{'invisible': ['|','|', ('state','=','confirm'), ('state','=','approve'), ('state','=','cancel')]}"/>
+
+                    <button class="btn-primary" name="action_approved" string="Approved" type="object" attrs="{'invisible': ['|','|', ('state','=','draft'), ('state','=','approve'), ('state','=','cancel')]}"/>
+
+                    <button name="action_cancel" string="Cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,approve"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    Add New Menu-->
+    <record id="action_a_view" model="ir.actions.act_window">
+        <field name="name">Specity</field>
+        <field name="res_model">v.facilities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="context">{}</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="venue_booking.facilities_kanban_view"/>
+    </record>
+
+    <record id="action_b_view" model="ir.actions.act_window">
+        <field name="name">Organization</field>
+        <field name="res_model">v.facilities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="context">{}</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="venue_booking.facilities_kanban_view"/>
+    </record>
+
+
+    <menuitem id="configuration_a"
+              parent="venue_booking.configuration"
+              action="action_a_view"
+              sequence="4"/>
+    <menuitem id="configuration_b"
+              parent="venue_booking.configuration"
+              action="action_b_view"
+              sequence="5"/>
+</odoo>

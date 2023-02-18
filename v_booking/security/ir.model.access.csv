@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_for_venue_booking,venue_booking,model_venue_booking,base.group_user,1,1,1,1
+access_for_v_venue,venue_booking,model_v_venue,base.group_user,1,1,1,1
+access_for_v_slot,venue_booking,model_v_slot,base.group_user,1,1,1,1
+access_for_v_facilities,venue_booking,model_v_facilities,base.group_user,1,1,1,1
+access_for_v_facilities_lines,venue_booking,model_v_facilities_lines,base.group_user,1,1,1,1
+access_for_v_slot_lines,venue_booking,model_v_slot_lines,base.group_user,1,1,1,1
+
+access_for_v_wizard,venue_booking,model_v_wizard,base.group_user,1,1,1,1

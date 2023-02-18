@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="home">
+        <t t-call="website.layout">
+            <div>
+                <section>
+                    <div class="container">
+                        <form action="/home/submit" method="POST" style="margin-top: 20px;">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div>
+                                <div class="form-group col-12">
+                                    <div class="row">
+                                        <label class="col-form-label col-sm-auto" style="width: 200px">
+                                            <span>Name</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="name" type="text" class="form-control" name="name" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <div class="row">
+                                        <label class="col-form-label col-sm-auto" style="width: 200px">
+                                            <span>Phone</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="phone" type="text" class="form-control" name="phone"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div class="row">
+                                        <label class="col-form-label col-sm-auto" style="width: 200px">
+                                            <span>Email</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="mail" type="email" class="form-control" name="mail"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div class="row s_col_no_resize">
+                                        <label class="col-form-label col-sm-auto" style="width: 200px">
+                                            <span>Specity</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="specity" type="text" class="form-control" name="specity"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div class="row">
+                                        <label class="col-form-label col-sm-auto" style="width: 200px">
+                                            <span>Organization</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="organization" type="text" class="form-control"
+                                                   name="organization"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div class="row">
+                                        <label class="col-form-label col-sm-auto" style="width: 200px">
+                                            <span>Venue</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="venue_id" class="form-control" id="venue_id"
+                                                    onchange="venueOnchange()">
+                                                <option value="0" selected="true">Choose here</option>
+                                                <t t-foreach="venue" t-as="venue">
+                                                    <option t-att-value="venue.id">
+                                                        <t t-out="venue.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div class="row s_col_no_resize">
+                                        <label class="col-form-label col-sm-auto" style="width: 200px">
+                                            <span>Slot</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="slot_id" class="form-control">
+                                                <option value="0" selected="true">Choose here</option>
+                                                <t t-foreach="slot" t-as="slot">
+                                                    <option t-att-value="slot.id">
+                                                        <t t-esc="slot.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div class="row">
+                                        <label class="col-form-label col-sm-auto" style="width: 200px">
+                                            <span>Facilities</span>
+                                        </label>
+                                        <div id="facility_select" class="col-sm d-flex flex-row">
+                                            <input type="hidden" name="abc" id="abc" value=""/>
+                                            <select id="facility_id" name="facility_id" class="form-control"
+                                                    onchange="facilityOnchange(this)">
+                                                <option value="0" selected="true">Choose here</option>
+                                                <t t-foreach="facilities" t-as="facilities">
+                                                    <option t-att-value="facilities.id">
+                                                        <t t-esc="facilities.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <div style="width: 200px;"/>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <script src="venue_booking/static/src/js/web_assets_frontend.js"></script>
+        </t>
+    </template>
+</odoo>

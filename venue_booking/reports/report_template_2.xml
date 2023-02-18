@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report id="action_report_2"
+            model="venue.booking"
+            report_type="qweb-pdf"
+            string="Venue"
+            print_report_name="Venue"
+            name="venue_booking.report_template_2"
+            file="venue_booking.report_template_2"
+            attachment_use="False"/>
+
+    <template id="report_template_2">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <t t-set="data" t-value="docs[0]"/>
+                <table style="width: 100%; font-family: Arial, Helvetica, sans-serif; line-height: 1.5;">
+                    <tr>
+                        <td colspan="4" style="text-align: right; font-weight: bold;">
+                            <span>Customer Copy</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="width: 100%; text-align: center;">
+                            <span style="font-size: 30px; font-weight: bold;">Computer Clinic Limited</span>
+                            <br/>
+                            <span>1st Floor, BCS Computer City,Agargoan, IDB Bhaban, Dhaka, Dhaka, 1207, Bangladesh
+                            </span>
+                            <br/>
+                            <span>Email: bdm@computerclinic.com.bd, manager@computerclinic.com.bd</span>
+                            <br/>
+                            <span>Mobile: 01713493172
+                                <![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]]> Web:
+                                computerclinic.com.bd
+                            </span>
+                            <br/>
+                            <hr/>
+                            <span style="font-weight: bold; padding: 5px;">Complain Received</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Complain ID</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Complain Date</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Client</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                            <span t-esc="data.name"/>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Expected Delivery</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Client Email</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                            <span t-esc="data.mail"/>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Subject Type</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Client ID</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Service Type</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Client Address</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Contact Number</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                            <span t-esc="data.phone"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Assign To</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Problem/Note</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; border: 2px solid #b6b6b6; margin-top: 20px; border-collapse: collapse;">
+                    <tr>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>SL</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Item</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Qty</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Serial no</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Branch</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Invoice no</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Sales Date</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Warranty</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>OS Fmt</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>HDD Fmt</b>
+                        </th>
+                    </tr>
+                    <!-- <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr> -->
+                </table>
+                <table style="width: 100%; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; margin: 80px 0;">
+                    <tr>
+                        <td style="width: 33%;">
+                            <span>--------------------------------------------</span>
+                            <br/>
+                            <span>Customer's Signature</span>
+                        </td>
+                        <td style="width: 34%; text-align: center;">
+                            <span>Hotline: 01713493172</span>
+                        </td>
+                        <td style="width: 33%; text-align: right;">
+                            <span>--------------------------------------------</span>
+                            <br/>
+                            <span>Authorized Signature</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="width: 100%; padding-top: 10px;">
+                            <span style="font-weight: bold;">Warranty and Service Notes:</span>
+                            <br/>
+                            <span>1. The warranty is not applicable to Sticker-removed item, Burned and
+                                Physically-damaged items.
+                            </span>
+                            <br/>
+                            <span>2. The mentioned service charge is our basic service charge. If any spare parts will
+                                be needed, the price will be added to the service charge, which will inform you after
+                                completing the diagnosis.
+                            </span>
+                            <br/>
+                            <span>3. After getting confirmation from you, we will complete this job. If we unable to fix
+                                the problem, then no service charge is applicable.
+                            </span>
+                            <br/>
+                            <span>4. The Computer Clinic Limited service won’t be responsible for any damage or
+                                inconvenience in the diagnosis period.
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                <hr/>
+                <table style="width: 100%; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; margin-top: 30px;">
+                    <tr>
+                        <td colspan="4" style="text-align: right; font-weight: bold;">
+                            <span>Office Copy</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="width: 100%; text-align: center;">
+                            <span style="font-weight: bold; padding: 5px;">Complain Received</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Complain ID</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Complain Date</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Client</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                            <span t-esc="data.name"/>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Expected Delivery</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Client Email</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                            <span t-esc="data.mail"/>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Subject Type</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Client ID</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Service Type</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Client Address</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Contact Number</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                            <span t-esc="data.phone"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">
+                            <span>Assign To</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                        <td style="width: 20%;">
+                            <span>Problem/Note</span>
+                        </td>
+                        <td style="width: 30%;">
+                            <span>:</span>
+                        </td>
+                    </tr>
+                </table>
+                <table style="width: 100%; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; border: 2px solid #b6b6b6; margin-top: 20px; border-collapse: collapse;">
+                    <tr>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>SL</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Item</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Qty</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Serial no</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Branch</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Invoice no</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Sales Date</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>Warranty</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>OS Fmt</b>
+                        </th>
+                        <th style="border: 2px solid #b6b6b6;">
+                            <b>HDD Fmt</b>
+                        </th>
+                    </tr>
+                    <!-- <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr> -->
+                </table>
+                <table style="width: 100%; font-family: Arial, Helvetica, sans-serif; line-height: 1.5; margin: 80px 0;">
+                    <tr>
+                        <td style="width: 33%;">
+                            <span>--------------------------------------------</span>
+                            <br/>
+                            <span>Customer's Signature</span>
+                        </td>
+                        <td style="width: 34%; text-align: center;">
+                            <span>Hotline: 01713493172</span>
+                        </td>
+                        <td style="width: 33%; text-align: right;">
+                            <span>--------------------------------------------</span>
+                            <br/>
+                            <span>Authorized Signature</span>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+        </t>
+    </template>
+<!--    <record id="action_report_a" model="ir.actions.report">-->
+<!--        <field name="name">Report</field>-->
+<!--        <field name="model">v.wizard</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">venue_booking.first_report</field>-->
+<!--        <field name="report_file">venue_booking.first_report</field>-->
+<!--        <field name="binding_model_id" ref="model_v_wizard"/>-->
+<!--        <field name="binding_type">report</field>-->
+
+<!--    </record>-->
+</odoo>

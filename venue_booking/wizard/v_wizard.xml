@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="v_wizard_view_from" model="ir.ui.view">
+        <field name="name">wizard.from.view</field>
+        <field name="model">v.wizard</field>
+        <field name="arch" type="xml">
+            <form string="CReport">
+                <group>
+                    <field name="name"/>
+                    <field name="mail"/>
+                    <field name="phone"/>
+                </group>
+                <footer>
+                    <button string="Print" name="action_print_report" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_create_report" model="ir.actions.act_window">
+        <field name="name">Create Report</field>
+        <field name="res_model">v.wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="v_wizard_view_from"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Venue Booking -->
+    <record id="venue_booking_kanban_view" model="ir.ui.view">
+        <field name="name">venue.booking.kanban.view</field>
+        <field name="model">venue.booking</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban" string="Venue Booking">
+                <field name="name"/>
+                <field name="venue_id"/>
+                <field name="facility_lines"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_content oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <ul>
+                                    <li>
+                                        <field name="venue_id"/>
+                                        <field name="facility_lines"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="venue_booking_form_view" model="ir.ui.view">
+        <field name="name">venue.booking.form.view</field>
+        <field name="model">venue.booking</field>
+        <field name="arch" type="xml">
+            <form string="Venue Booking">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" id="abc"/>
+                            <field name="mail"/>
+                            <field name="slot_id"/>
+                        </group>
+                        <group>
+                            <field name="venue_id"/>
+                            <field name="phone"/>
+                            <field name="facility_lines" string="Facilities" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="venue_booking_tree_view" model="ir.ui.view">
+        <field name="name">venue.booking.tree.view</field>
+        <field name="model">venue.booking</field>
+        <field name="arch" type="xml">
+            <tree string="Venue Booking">
+                <field name="name"/>
+                <field name="venue_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_venue_booking_view" model="ir.actions.act_window">
+        <field name="name">Venue Booking</field>
+        <field name="res_model">venue.booking</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="context">{}</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Booking a new Venue.
+            </p>
+        </field>
+    </record>
+
+    <!-- Venue -->
+    <record id="venue_kanban_view" model="ir.ui.view">
+        <field name="name">venue.kanban.view</field>
+        <field name="model">v.venue</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban" string="Venue">
+                <field name="name"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_content oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="venue_form_view" model="ir.ui.view">
+        <field name="name">venue.form.view</field>
+        <field name="model">v.venue</field>
+        <field name="arch" type="xml">
+            <form string="Venue">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="contact_persion_id" string="Contact"/>
+                            <field name="email" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="capacity"/>
+                            <field name="address"/>
+                            <field name="phone" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Slot" name="slot">
+                            <group>
+                                <field name="slot_lines" string="Slot">
+                                    <tree editable="bottom">
+                                        <field name="slot_lines_id" string="Slot"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="slot_lines_id"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Facilities" name="facilities">
+                            <group>
+                                <field name="facility_lines" string="Facilities">
+                                    <tree editable="bottom">
+                                        <field name="facility_lines_id" string="Facilities"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="facility_lines_id"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="venue_tree_view" model="ir.ui.view">
+        <field name="name">venue.tree.view</field>
+        <field name="model">v.venue</field>
+        <field name="arch" type="xml">
+            <tree string="Venue">
+                <field name="name" string="Name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_venue_view" model="ir.actions.act_window">
+        <field name="name">Venue</field>
+        <field name="res_model">v.venue</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="context">{}</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Creat a new Venue.
+            </p>
+        </field>
+    </record>
+
+    <!-- Slot -->
+    <record id="slot_kanban_view" model="ir.ui.view">
+        <field name="name">slot.kanban.view</field>
+        <field name="model">v.slot</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban" string="Slot">
+                <field name="name"/>
+                <field name="day"/>
+                <field name="date"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_content oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <ul>
+                                    <li>
+                                        <field name="day"/>
+                                        <field name="date"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="slot_form_view" model="ir.ui.view">
+        <field name="name">slot.form.view</field>
+        <field name="model">v.slot</field>
+        <field name="arch" type="xml">
+            <form string="Slot">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="Name"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="day" string="Day"/>
+                            <field name="time" string="Time"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="slot_tree_view" model="ir.ui.view">
+        <field name="name">slot.tree.view</field>
+        <field name="model">v.slot</field>
+        <field name="arch" type="xml">
+            <tree string="Slot">
+                <field name="name" string="Name"/>
+                <field name="day" string="Day"/>
+                <field name="date" string="Date"/>
+                <field name="time" string="Time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_slot_view" model="ir.actions.act_window">
+        <field name="name">Slot</field>
+        <field name="res_model">v.slot</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="context">{}</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Creat a new Slot.
+            </p>
+        </field>
+    </record>
+
+<!-- Facilities -->
+    <record id="facilities_kanban_view" model="ir.ui.view">
+        <field name="name">facilities.kanban.view</field>
+        <field name="model">v.facilities</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban" string="Facilities">
+                <field name="name"/>
+                <field name="quantity"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_content oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <ul>
+                                    <li>
+                                        <field name="quantity"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="facilities_form_view" model="ir.ui.view">
+        <field name="name">facilities.form.view</field>
+        <field name="model">v.facilities</field>
+        <field name="arch" type="xml">
+            <form string="Facilities">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="quantity"/>
+                        </group>
+                        <group>
+                            <field name="product_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="facilities_tree_view" model="ir.ui.view">
+        <field name="name">v.facilities.tree.view</field>
+        <field name="model">v.facilities</field>
+        <field name="arch" type="xml">
+            <tree string="Facilities">
+                <field name="name"/>
+                <field name="quantity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_facilities_view" model="ir.actions.act_window">
+        <field name="name">Facilities</field>
+        <field name="res_model">v.facilities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="context">{}</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Facilities.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menu -->
+    <record id="menu_home" model="website.menu">
+        <field name="name">Venue Booking</field>
+        <field name="url">/home</field>
+        <field name="sequence">10</field>
+        <field name="parent_id" search="[('parent_id', '=', False), ('website_id', '=', 1)]"/>
+        <field name="website_id" ref="website.default_website"/>
+    </record>
+
+<!--    <record id="menu_Venue" model="website.menu">-->
+<!--        <field name="name">Venue</field>-->
+<!--        <field name="url"></field>-->
+<!--        <field name="sequence">10</field>-->
+<!--        <field name="parent_id" ref="venue_booking.menu_home"/>-->
+<!--        <field name="website_id" ref="website.default_website"/>-->
+<!--    </record>-->
+
+</odoo>

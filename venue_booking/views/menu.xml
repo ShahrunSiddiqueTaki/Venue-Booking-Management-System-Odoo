@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menu -->
+    <menuitem name="Venue Booking System"
+              id="venue_booking_system"
+              sequence="0"/>
+    <!-- Top Menu -->
+    <menuitem name="Venue Booking"
+              id="venue_booking"
+              parent="venue_booking_system"
+              action="action_venue_booking_view"
+              sequence="1"/>
+
+    <menuitem name="Configuration"
+              id="configuration"
+              parent="venue_booking_system"
+              sequence="2"/>
+    <menuitem name="Create Report"
+              id="create_report"
+              parent="venue_booking_system"
+              action="action_create_report"
+              sequence="2"/>
+    <!-- Configuration Sub Menu -->
+    <menuitem name="Venue"
+              id="configuration_venue"
+              parent="configuration"
+              action="action_venue_view"
+              sequence="0"/>
+    <menuitem name="Slot"
+              id="configuration_slot"
+              parent="configuration"
+              action="action_slot_view"
+              sequence="1"/>
+    <menuitem name="Facilities"
+              id="configuration_facilities"
+              parent="configuration"
+              action="action_facilities_view"
+              sequence="1"/>
+
+</odoo>
